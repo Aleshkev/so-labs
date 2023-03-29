@@ -10,6 +10,12 @@ hello.o: hello.asm
 hello: hello.o
 	ld --fatal-warnings -o $@ $<
 
+hello_2.o: hello_2.asm
+	nasm -f elf64 -w+all -w+error -o $@ $<
+
+hello_2: hello_2.o
+	ld --fatal-warnings -o $@ $<
+
 # mac0_test.o: mac0_test.c
 # 	gcc -c -Wall -Wextra -std=c17 -O2 -o $@ $<
 
