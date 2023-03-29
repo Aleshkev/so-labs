@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <limits.h>
+#include <stdio.h>
 
 // To jest deklaracja pierwszej z testowanych funkcji.
 int smax(int, int);
@@ -29,4 +30,6 @@ int main() {
   assert(umax(5000000000, 1000000000) == 1000000000);
   assert(umax(INT_MAX, INT_MIN) == INT_MIN);
   assert(umax(987, 987) == 987);
+
+  printf("OK\n");
 }

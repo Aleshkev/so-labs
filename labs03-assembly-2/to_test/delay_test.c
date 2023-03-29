@@ -20,6 +20,8 @@ int main(int argc, char *args[]) {
   // Wykonaj właściwy test.
   uint64_t t = delay(n);
 
+  printf("t = %lu, n = %lu\n", t, n);
+
   // Wypisz wynik testu.
   printf("Średnia liczba cykli zegara na jedną iterację pętli wynosi %.2f.\n",
          (double)(t) / (double)n);

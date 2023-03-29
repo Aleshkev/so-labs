@@ -7,10 +7,16 @@ all: max_test delay_jz_jn_test delay_jrcxz_loop_test mean_test
 max.o: max.asm
 	nasm -f elf64 -w+all -w+error -o $@ $<
 
+max_c.o: max_c.c
+	gcc -c -Wall -Wextra -Wno-sign-compare -std=c17 -O2 -o $@ $<
+
 max_test.o: max_test.c
 	gcc -c -Wall -Wextra -Wno-sign-compare -std=c17 -O2 -o $@ $<
 
 max_test: max.o max_test.o
+	gcc -z noexecstack -o $@ $^
+
+max_test_c: max_c.o max_test.o
 	gcc -z noexecstack -o $@ $^
 
 delay_jz_jnz.o: delay_jz_jnz.asm
